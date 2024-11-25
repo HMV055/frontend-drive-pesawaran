@@ -1,0 +1,640 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+	--montserrat: 'Montserrat', sans-serif;
+
+	--light: #FFFFFF;
+	--green: #03a434;
+	--dark-green: #146A42;
+	--light-green: #e5f8ef;
+	--blue: #4e9fec;
+	--grey: #eee;
+	--dark-grey: #AAAAAA;
+	--medium-grey: #8b8989;
+	--dark: #342E37;
+	--black: #000;
+	--red: #DB504A;
+	--yellow: #fdd03d;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+	--light-yellow: #f8f2deef;
+ 	--light-grey: #f5f5f5;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+	background: var(--light);
+	overflow-x: hidden;
+	font-family: var(--montserrat);
+}
+
+/* SIDEBAR */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--light);
+    z-index: 2000;
+    font-family: var(--montserrat);
+    transition: .3s ease;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+#sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+#sidebar.hide {
+    width: 60px;
+}
+
+#sidebar .brand {
+    font-size: 18px;
+    font-weight: 700;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    color: var(--dark);
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: var(--light);
+    z-index: 500;
+    padding-bottom: 20px;
+    box-sizing: content-box;
+}
+#sidebar .brand i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+}
+
+#sidebar .text-container {
+    display: flex; /* Menggunakan flexbox untuk teks */
+    flex-direction: row; /* Mengatur teks dalam kolom */
+    text-align: left; /* Rata kiri */
+}
+
+#sidebar .line1, 
+#sidebar .line2 {
+    line-height: 1.2; /* Jarak antar baris */
+    white-space: nowrap; /* Mencegah teks menjadi satu baris */
+}
+#sidebar .brand .bx {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+}
+#sidebar .border-upload {
+    position: relative; 
+    height: 80px; 
+    width: 70%; 
+    margin: 20px auto; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: var(--light-grey);
+    border-radius: 17px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar .line-upload {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 17px; 
+    border: 2px dashed #c4c4c4; 
+    box-sizing: border-box;
+}
+
+#sidebar .border-upload i {
+    font-size: 24px; 
+    color: var(--dark); 
+}
+
+
+
+#sidebar .nav {
+    width: 100%;
+    margin-top: 48px;
+    padding: 0;
+}
+
+#sidebar .sidebar-divider {
+    border: none; 
+    height: 4px; /* ketebalan garis */
+    background-color: var(--medium-grey); 
+    margin: 10px 0;
+	width: 90%; /* panjang garis */
+    margin-left: auto; 
+    margin-right: auto;
+	border-radius: 11px 11px 11px 11px ;
+}
+
+#sidebar .nav-item {
+    height: 48px;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
+    position: relative; 
+}
+
+#sidebar .nav-item.active {
+    background: var(--light);
+    position: relative;
+}
+
+#sidebar .nav-item.active::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 0%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 var(--grey);
+    z-index: -1;
+}
+
+#sidebar .nav-item.active::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 0%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 var(--grey);
+    z-index: -1;
+}
+
+#sidebar .nav-item a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
+    padding-left: 16px; 
+}
+
+#sidebar .nav-item a .bx {
+    min-width: 36px;
+    margin-right: 10px; 
+}
+
+#sidebar .nav-item.active a {
+    color: var(--dark-green);
+}
+
+#sidebar .nav-item a:hover {
+    color: var(--dark-green);
+}
+
+#sidebar.hide .nav-item a {
+    padding-left: 0; /* Remove padding on hidden state */
+}
+
+#sidebar.hide .nav-item a .bx {
+    margin-right: 0; /* Remove margin on hidden state */
+}
+
+
+#sidebar .nav-item a .bx {
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar .nav-link {
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    height: 48px; 
+    position: relative; 
+    padding: 0 16px;
+}
+
+#sidebar .nav-link i {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    margin-right: 8px;
+}
+
+#sidebar .nav-link:hover i,
+#sidebar .nav-item.active i {
+    visibility: visible;
+    opacity: 1;
+}
+
+#sidebar .text {
+    flex: 1; 
+    text-align: left;
+	font-weight: 600; 
+}
+
+
+    /* Storage */
+    #sidebar .storage {
+        display: flex;
+        align-items: flex-start; /* Ubah menjadi flex-start agar ikon dan teks tidak terpusat */
+        justify-content: flex-start; /* Pastikan semua elemen sejajar ke kiri */
+        padding: 10px; /* Tambahkan padding jika diperlukan */
+    }
+    
+    #sidebar .storage-info {
+        flex-grow: 1; /* Membuat informasi penyimpanan mengambil ruang yang tersedia */
+        display: flex;
+        flex-direction: column; /* Mengatur arah konten ke kolom */
+    }
+    
+    #sidebar .progress {
+        width: 100%; /* Pastikan progress bar mengambil lebar penuh */
+        margin-bottom: 5px; /* Tambahkan margin bawah untuk jarak antara progress bar dan teks */
+    }
+    
+    #sidebar .terpakai {
+        font-size: 10px; /* Ukuran font untuk teks terpakai */
+        color: var(--dark); /* Warna teks */
+        margin-top: 5px; /* Tambahkan margin atas jika diperlukan untuk jarak */
+    }
+    
+    #sidebar .storage-icon {
+        display: flex; /* Pastikan ikon ditampilkan sebagai flex */
+        justify-content: center; /* Pusatkan ikon */
+        align-items: center; /* Pusatkan ikon secara vertikal */
+        height: 48px; /* Sesuaikan tinggi agar sejajar dengan item lainnya */
+    }
+    
+    #sidebar .storage i {
+        font-size: 24px;
+        color: var(--dark-green);
+        cursor: pointer;
+        margin-left: 10px; /* Tambahkan margin kiri jika diperlukan untuk ruang */
+    }
+
+    #sidebar.hide .storage-info {
+        display: none; /* Menyembunyikan informasi penyimpanan */
+    }
+    
+    #sidebar.hide .storage-icon {
+        display: block; /* Pastikan ikon penyimpanan tetap terlihat */
+    }
+/* SIDEBAR */
+
+
+
+/* CONTENT */
+#content {
+	position: relative;
+	width: calc(100% - 280px);
+	left: 130px;
+	transition: .3s ease;
+}
+
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 20px;
+}
+
+
+/* NAVBAR */
+#content nav {
+    height: 56px; /* Pastikan tinggi navbar sesuai */
+    background: var(--light);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Pastikan semua item di tengah secara vertikal */
+    justify-content: space-between; /* Memastikan elemen terdistribusi dengan baik */
+    font-family: var(--montserrat);
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#content .navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Tempatkan di bawah navbar */
+    left: 0;
+    width: 100%; /* Lebar penuh */
+    height: 2px;
+    background-color: #A6A6A6; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+#content nav .bx.bx-menu {
+    cursor: pointer;
+    color: var(--dark);
+}
+
+#content nav .nav-link {
+    color: var(--dark);
+    font-size: 36px;
+    cursor: default;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#content nav form .input-group {
+	display: flex;
+	align-items: center;
+	height: 36px;
+}
+
+#content nav form .input-group .form-control {
+	width: 80%; 
+	padding: 0 16px;
+	height: 100%;
+	border: 3px solid var(--green);
+	background: var(--light);
+	border-radius: 11px 0 0 11px;
+	outline: none;
+	color: var(--dark);
+}
+
+#content nav form .input-group .search-btn {
+	width: 36px; 
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--dark-green);
+	color: var(--light);
+	font-size: 18px;
+	border: none;
+	outline: none;
+	border-radius: 0 11px 11px 0; /* Keep this for rounded corners */
+	cursor: pointer;
+}
+
+#content nav .setting,
+#content nav .profile {
+    color: var(--dark);
+}
+
+#content nav .setting {
+    font-size: 20px;
+    position: relative;
+}
+
+#content nav .profile img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* NAVBAR */
+
+/* MAIN */
+#content main {
+	width: 100%;
+	padding: 36px 24px;
+	font-family: var(--montserrat);
+	max-height: calc(100vh - 56px);
+	overflow-y: auto;
+
+}
+
+/* Scrollbar Styling for Main */
+#content main::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+}
+
+#content main::-webkit-scrollbar-track {
+    background: var(--light); /* Warna latar belakang scrollbar */
+}
+
+#content main::-webkit-scrollbar-thumb {
+    background: var(--black); /* Warna thumb scrollbar */
+    border-radius: 10px; /* Sudut membulat untuk thumb */
+}
+
+#content main .head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+
+#content main .head-title .left h1 {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--dark);
+}
+
+.tab-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--light-grey); 
+	border-radius: 5px;
+	padding: 5px;
+	position: relative;
+	z-index: 10; /* Z-index yang lebih tinggi dari navbar */
+	top: 1px; 
+	left: 4px; 
+	width: 300px; 
+}
+
+.tab {
+	flex: 1; 
+	text-align: center; 
+	padding: 10px;
+	margin-right: 10px; 
+	border-radius: 5px;
+	cursor: pointer;
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	color: var(--dark);
+	transition: background-color 0.3s;
+}
+
+.tab.active {
+	background-color: var(--light);
+	border: 1px solid var(--light-grey);
+	font-weight: bold;
+}
+
+.tab:not(.active) {
+	color: var(--dark-grey);
+}
+
+#content main .head-title .btn-view {
+	height: 36px;
+	padding: 0 16px;
+	box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 6px;
+	background: var(--light);
+	color: var(--dark);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--dark);
+	font-weight: 500;
+}
+
+/* Upload File */
+#content main .drop-section {
+	min-height: 480px; 
+    border: 1px dashed var(--green); 
+    background-image: linear-gradient(180deg, white, var(--light-green)); /* Warna latar belakang */
+    margin: 20px 0; 
+    border-radius: 12px; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+}
+#content main .drop-section .cloud-icon {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 100px; 
+    color: var(--dark-green); 
+}
+#content main .drop-section div.col:first-child {
+    opacity: 1;
+    visibility: visible;
+    transition-duration: 0.2s;
+    transform: scale(1);
+    width: 200px;
+    margin: auto;
+}
+
+#content main .drop-section div.col:last-child {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--dark-green);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 200px;
+    height: 55px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.6);
+    transition-duration: 0.2s;
+}
+
+#content main .drop-section span,
+.drop-section button {
+	display: block;
+    margin: auto;
+    color: var(--dark-green);
+    margin-bottom: 10px;
+	text-align: center;
+}
+
+#content main .drop-section button {
+    color: white;
+    background-color: var(--dark-green);
+    border: none;
+    outline: none;
+    padding: 7px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+#content main .drop-section input {
+    display: none;
+}
+/* MAIN */
+/* CONTENT */
+
+
+/* Media query untuk responsif */
+@media screen and (max-width: 768px) {
+    #sidebar {
+        width: 200px; /* Atur lebar sidebar */
+    }
+
+    #sidebar .brand {
+        font-size: 16px; /* Ukuran font yang lebih besar */
+    }
+
+    #sidebar .text-container {
+        flex-direction: column; /* Mengatur teks dalam kolom untuk tampilan responsif */
+    }
+
+    #content {
+        width: calc(100% - 60px);
+        left: 180px;
+    }
+
+    #content nav .nav-link {
+        display: none;
+    }
+}
+
+
+
+/* Responsif CSS */
+@media screen and (max-width: 576px) {
+    #content nav .input-group .form-control {
+        display: none;
+    }
+
+    #content nav .input-group .search-btn {
+        width: auto;
+        height: auto;
+        background: transparent;
+        border-radius: none;
+        color: var(--dark);
+    }
+
+    #content nav form.show .input-group .form-control {
+        display: block;
+        width: 80%;
+    }
+
+    #content nav form.show .input-group .search-btn {
+        width: 34px;
+        height: 100%;
+        border-radius: 0 36px 36px 0;
+        color: var(--light);
+        background: var(--red);
+    }
+
+    #content nav form.show ~ .setting,
+    #content nav form.show ~ .profile {
+        display: none;
+    }
+}

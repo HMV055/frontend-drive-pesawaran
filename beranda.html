@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/test.css">
+
+	<title>Beranda</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+        <style>
+            /* MAIN */
+#content main {
+	width: 100%;
+	padding: 36px 24px;
+	font-family: var(--montserrat);
+	max-height: calc(100vh - 56px);
+	overflow-y: auto;
+
+}
+
+/* Scrollbar Styling for Main */
+#content main::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+}
+
+#content main::-webkit-scrollbar-track {
+    background: var(--light); /* Warna latar belakang scrollbar */
+}
+
+#content main::-webkit-scrollbar-thumb {
+    background: var(--black); /* Warna thumb scrollbar */
+    border-radius: 10px; /* Sudut membulat untuk thumb */
+}
+
+#content main .head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+
+#content main .head-title .left h1 {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--dark);
+}
+
+
+ /* Custom styling for tabs */
+    .nav-tabs {
+        border-bottom: none;
+      }
+      .nav-tabs .nav-link {
+        border-radius: 10px;
+        padding: 8px 20px;
+        color: #333;
+        font-weight: bold;
+        background-color: #f0f0f0;
+      }
+      .nav-tabs .nav-link.active {
+        background-color: #fff;
+        color: #333;
+        border-color: #ddd;
+      }
+      .tab-content {
+        width: 100%;
+    }
+    .row.grid-view {
+        width: 100%; /* Lebar 100% */
+        display: flex; /* Menggunakan flexbox *//* Mengatur jarak antar item */
+        align-items: stretch; /* Memastikan semua item memiliki tinggi yang sama */
+}
+        .file-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+        .file-icon {
+            font-size: 24px;
+        }
+        .file-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+        }
+        .file-type {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .file-size {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .file-actions {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .file-actions i {
+            margin-right: 5px;
+        }
+        .file-star {
+            color: #ffc107;
+        }
+        .file-view {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* Sesuaikan ukuran kotak */
+            width: 180px;  /* Sesuaikan ukuran kotak */
+            background-color: #f5f5f5; /* Warna latar belakang kotak */
+            border: 1px solid #ddd; /* Border tipis */
+            border-radius: 8px; /* Radius untuk membuat sudut melengkung */
+            margin: 10px auto; /* Pusatkan elemen dengan margin otomatis */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+        }
+        
+        .file-view .file-icon {
+            font-size: 60px; /* Ukuran ikon file */
+            color: #666; /* Warna ikon */
+        }
+        
+        </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <section id="sidebar" class="sidebar">
+        <div class="brand mb-3">
+            <i class='bx bx-cloud'></i>
+            <div class ="text-container">
+                <span class="line1">PESAWARAN.</span>
+                <span class="line2">CLOUD</span>
+            </div>
+        </div>
+
+<!-- Upload File Sidebar -->
+<div class="border-upload">
+    <i class='bx bx-message-alt-add'></i>
+    <div class="line-upload"></div>
+    <input type="file" id="fileInput" style="display: none;" />
+</div>
+
+
+
+
+<ul class="nav flex-column mb-auto">
+    <li class="nav-item">
+        <a href="beranda.html" class="nav-link active d-flex" data-icon="category">
+            <i class='bx bx-category'></i>
+            <span class="text ms-2">Beranda</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="" class="nav-link d-flex" data-icon="folder">
+            <i class='bx bx-folder'></i>
+            <span class="text ms-2">Berkas Saya</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href=" " class="nav-link d-flex" data-icon="star">
+            <i class='bx bx-star'></i>
+            <span class="text ms-2">Berbintang</span>
+        </a>
+    </li>
+</ul>
+<hr class="sidebar-divider">
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a href="" class="nav-link d-flex" data-icon="trash-alt">
+            <i class='bx bx-trash-alt'></i>
+            <span class="text ms-2">Sampah</span>
+        </a>
+    </li>
+</ul>
+
+<!-- Storage -->
+<div class="storage mt-3">
+    <div class="storage-info">
+        <span class="fw-bold">Penyimpanan</span>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="terpakai">Terpakai: 0 GB</span> 
+    </div>
+    <a href="" class="storage-icon">
+        <i class='bx bx-plus-circle'></i>
+    </a>
+</div>
+    </section>
+    <!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content" class="container-fluid">
+        <!-- NAVBAR -->
+<nav class="navbar navbar-light bg-light px-3">
+    <div class="d-flex align-items-center">
+        <i class='bx bx-menu'></i>
+        <span class="nav-link ms-3">Halo, </span>
+    </div>
+
+    <!-- Form for Search -->
+    <form class="d-flex ms-auto" action="#">
+        <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search...">
+            <button type="submit" class="btn search-btn">
+                <i class='bx bx-search'></i>
+            </button>
+        </div>
+    </form>
+
+    <!-- Profile -->
+    <div class="profile ms-3">
+        <a href="#" class="profile">
+            <img src="assets/img/user.jpeg" class="rounded-circle" alt="User ">
+        </a>
+    </div>
+</nav>
+<!-- NAVBAR -->
+
+
+		<!-- MAIN -->
+        <main class="p-4">
+			<!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">File</h1>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
+                        class="fa-solid fa-border-all fa-sm text-white"></i> | icon</a>
+            </div>
+        
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="terbaru-tab" data-bs-toggle="tab" data-bs-target="#terbaru" type="button" role="tab" aria-controls="terbaru" aria-selected="true">Terbaru</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="dibagikan-tab" data-bs-toggle="tab" data-bs-target="#dibagikan" type="button" role="tab" aria-controls="dibagikan" aria-selected="false">Dibagikan</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="terbaru" role="tabpanel" aria-labelledby="terbaru-tab">
+                  <!-- Content for "Terbaru" tab -->
+                    
+                  <!-- Grid View -->
+                    <div class="row grid-view">
+                        <div class="col-md-3">
+                            <div class="file-card">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fas fa-file-alt file-icon text-primary"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <div class="file-view">
+                                    <i class="fas fa-file-alt file-icon text-primary"></i>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="file-title">Daftar Pertanyaan Web Clo...</div>
+                                    <div class="file-type">Docs | 22 kb</div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <div class="file-actions">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            <i class="fa-solid fa-file-pen"></i>
+                                            <i class="fas fa-star file-star"></i>
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="file-card">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fas fa-file-pdf file-icon text-danger"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <div class="file-view">
+                                    <i class="fas fa-file-pdf file-icon text-danger"></i>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="file-title">CV Adib Raihan Mudzaky</div>
+                                    <div class="file-type">PDF | 2 MB</div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <div class="file-actions">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            <i class="fa-solid fa-file-pen"></i>
+                                            <i class="fas fa-star file-star"></i>
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="file-card">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fas fa-file-powerpoint file-icon text-warning"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <div class="file-view">
+                                    <i class="fas fa-file-powerpoint file-icon text-warning"></i>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="file-title">Tugas-3_Kelompok-6</div>
+                                    <div class="file-type">Slide | 5 MB</div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <div class="file-actions">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            <i class="fa-solid fa-file-pen"></i>
+                                            <i class="fas fa-star file-star"></i>
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="file-card">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fa-solid fa-file-excel file-icon text-success"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <div class="file-view">
+                                    <i class="fa-solid fa-file-excel file-icon text-success"></i>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="file-title">Ploating Team MSIB</div>
+                                    <div class="file-type">Sheets | 22 kb</div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <div class="file-actions">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            <i class="fa-solid fa-file-pen"></i>
+                                            <i class="fas fa-star file-star"></i>
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="file-card">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fa-solid fa-film file-icon text-danger"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <div class="file-view">
+                                    <i class="fa-solid fa-film file-icon text-danger"></i>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="file-title">CNN.mp4</div>
+                                    <div class="file-type">Video | 22 kb</div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <div class="file-actions">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            <i class="fa-solid fa-file-pen"></i>
+                                            <i class="fas fa-star file-star"></i>
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="file-card">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fa-solid fa-file-audio file-icon text-danger"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                                <div class="file-view">
+                                    <i class="fa-solid fa-file-audio file-icon text-danger"></i>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="file-title">APT</div>
+                                    <div class="file-type">Audio | 3 MB</div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <div class="file-actions">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            <i class="fa-solid fa-file-pen"></i>
+                                            <i class="fas fa-star file-star"></i>
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                   
+                    <!-- List View -->
+                    
+        
+                </div>
+                <div class="tab-pane fade" id="dibagikan" role="tabpanel" aria-labelledby="dibagikan-tab">
+                  <!-- Content for "Dibagikan" tab -->
+                  <!-- Grid View -->
+                  <div class="row grid-view">
+                    <div class="col-md-3">
+                        <div class="file-card">
+                            <div class="d-flex justify-content-between">
+                                <i class="fas fa-file-alt file-icon text-primary"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                            <div class="file-view">
+                                <i class="fas fa-file-alt file-icon text-primary"></i>
+                            </div>
+                            <div class="mt-2">
+                                <div class="file-title">Daftar Pertanyaan Web Clo...</div>
+                                <div class="file-type">Docs | 22 kb</div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <div class="file-actions">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        <i class="fa-solid fa-file-pen"></i>
+                                        <i class="fas fa-star file-star"></i>
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="file-card">
+                            <div class="d-flex justify-content-between">
+                                <i class="fas fa-file-pdf file-icon text-danger"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                            <div class="file-view">
+                                <i class="fas fa-file-pdf file-icon text-danger"></i>
+                            </div>
+                            <div class="mt-2">
+                                <div class="file-title">CV Adib Raihan Mudzaky</div>
+                                <div class="file-type">PDF | 2 MB</div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <div class="file-actions">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        <i class="fa-solid fa-file-pen"></i>
+                                        <i class="fas fa-star file-star"></i>
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="file-card">
+                            <div class="d-flex justify-content-between">
+                                <i class="fas fa-file-powerpoint file-icon text-warning"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                            <div class="file-view">
+                                <i class="fas fa-file-powerpoint file-icon text-warning"></i>
+                            </div>
+                            <div class="mt-2">
+                                <div class="file-title">Tugas-3_Kelompok-6</div>
+                                <div class="file-type">Slide | 5 MB</div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <div class="file-actions">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        <i class="fa-solid fa-file-pen"></i>
+                                        <i class="fas fa-star file-star"></i>
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="file-card">
+                            <div class="d-flex justify-content-between">
+                                <i class="fa-solid fa-file-excel file-icon text-success"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                            <div class="file-view">
+                                <i class="fa-solid fa-file-excel file-icon text-success"></i>
+                            </div>
+                            <div class="mt-2">
+                                <div class="file-title">Ploating Team MSIB</div>
+                                <div class="file-type">Sheets | 22 kb</div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <div class="file-actions">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        <i class="fa-solid fa-file-pen"></i>
+                                        <i class="fas fa-star file-star"></i>
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="file-card">
+                            <div class="d-flex justify-content-between">
+                                <i class="fa-solid fa-film file-icon text-danger"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                            <div class="file-view">
+                                <i class="fa-solid fa-film file-icon text-danger"></i>
+                            </div>
+                            <div class="mt-2">
+                                <div class="file-title">CNN.mp4</div>
+                                <div class="file-type">Video | 22 kb</div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <div class="file-actions">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        <i class="fa-solid fa-file-pen"></i>
+                                        <i class="fas fa-star file-star"></i>
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="file-card">
+                            <div class="d-flex justify-content-between">
+                                <i class="fa-solid fa-file-audio file-icon text-danger"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                            <div class="file-view">
+                                <i class="fa-solid fa-file-audio file-icon text-danger"></i>
+                            </div>
+                            <div class="mt-2">
+                                <div class="file-title">APT</div>
+                                <div class="file-type">Audio | 3 MB</div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <div class="file-actions">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        <i class="fa-solid fa-file-pen"></i>
+                                        <i class="fas fa-star file-star"></i>
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+              </div>
+
+		</main>
+                    
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+	<script src="assets/JS/cloud.js"></script>
+    
+</body>
+</html>
